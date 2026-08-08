@@ -1,0 +1,178 @@
+body {  						/*= aturan ini berlaku untuk seluruh isi halaman =*/
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8; 	/*= warna latar belakang halaman (kode warna dimulai #, disebut hex code) =*/
+  color: #1f3a5f; 				/*= warna teks =*/
+  margin: 40px; 				/*= jarak kosong di sekitar sisi halaman =*/
+}
+
+h1 {
+  color: #2c5f8a; 				/*= khusus judul <h1>, warnanya beda sendiri =*/
+}
+
+a {  							/*= khusus link (<a>), warna oranye, tanpa garis bawah, tebal =*/
+  color: #ff6b35;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===== TOMBOL KEMBALI ===== */
+.tombol-kembali { 				/* titik di depan artinya ini aturan untuk class, bukan tag HTML biasa. Namanya harus persis sama dengan yang ditulis di class="..." pada HTML. =*/
+  display: inline-block; 		/* supaya padding & background-nya membentuk kotak rapi */
+  background-color: #2c5f8a; 	/* warna tombol */
+  color: white; 				/* warna teks pada tombol */
+  padding: 8px 16px; 			/* jarak dalam kotak (atas-bawah 8px, kiri-kanan 16px) atau jarak isi teks ke pinggir tombol */
+  border-radius: 6px;  			/* sudut kotak jadi tumpul/rounded */
+  margin-top: 20px;				/* jarak dari elemen di atasnya */
+}
+
+/*= DAFTAR TOPIK PEMBELAJARAN =*/
+ol {
+  list-style: none;					/* menghilangkan angka/bullet bawaan browser */
+  padding: 0;						/* menghilangkan jarak indentasi default dari <ol> */
+}
+
+ol li {								/* ini disebut selector turunan — artinya "atur <li> yang ada di dalam <ol>" */
+  background-color: lightblue; 		/* tiap topik jadi kotak biru terang */
+  margin-bottom: 8px;				/* jarak antar kotak */
+  padding: 12px 16px;				/* ukuran tombol tinggi x lebar */
+  border-radius: 6px;				
+  border-left: 4px solid #ff6b35;	/* garis oranye tebal 4px di sisi kiri kotak, sebagai aksen bukan link di dalam kotak dibikin warna biru tua (menimpa warna oranye default a yang kita atur di Tahap 5) =*/
+}
+
+ol li a {
+  color: #1f3a5f;
+}
+
+/* ===== LOGO ===== */
+header img {
+  height: 50px;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+
+/* ===== HEADER & NAVIGASI ===== */
+header {
+  background-color: #1f3a5f;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+    
+  display: flex;              		/* aktifkan flexbox */
+  align-items: center;        		/* sejajarkan secara vertikal di tengah */
+  justify-content: space-between; 	/* logo+judul di kiri, nav di kanan */
+  flex-wrap: wrap;            		/* kalau layar sempit, boleh turun ke baris baru */
+  
+}
+
+header nav {
+  display: flex;    /* ini yang bikin link-link di dalam nav sejajar horizontal */
+  gap: 16px;         /* jarak antar link */
+}
+
+header h1 {
+  color: white;
+  margin: 0 0 10px 0;
+}
+
+header nav a {						/*= pembungkus khusus untuk kumpulan link navigasi =*/
+  color: white;
+  text-decoration: underline;
+       
+}
+
+/* ===== TABEL TUGAS (tugas.html) ===== */
+table {							/*= pembungkus seluruh tabel =*/
+  width: 100%;					/*= tabel selebar penuh halaman =*/
+  border-collapse: collapse;	/*= menggabungkan garis antar sel jadi satu garis tipis (default-nya dobel) =*/
+  background-color: white;		
+  border-radius: 6px;			/*=  =*/
+  overflow: hidden;				/*=  =*/
+}
+
+th, td {						/*= koma artinya "berlaku untuk kedua tag ini sekaligus" =*/
+  padding: 12px 16px;
+  text-align: left;				/*= teks rata kiri di tiap sel =*/
+  border-bottom: 1px solid #d0d8e0;
+}
+
+th {
+  background-color: #2c5f8a;
+  color: white;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 16px;
+  color: #4a6a8a;
+  font-size: 14px;
+}
+
+/* ===== EFEK HOVER ===== */ 
+a:hover {
+  color: #c94a1c;   /* warna oranye jadi lebih gelap saat disentuh mouse */
+}
+
+header nav a:hover {
+  color: #ffd23f;   /* link menu jadi kuning saat disentuh */
+  text-decoration: none;
+}
+
+.tombol-kembali:hover {
+  background-color: #ff6b35;  /* tombol berubah oranye saat disentuh */
+}
+
+ol li:hover {
+  background-color: #cfe6f7;  /* kotak topik berubah biru sedikit lebih gelap */
+  transition: background-color 0.2s;  /* perubahan warnanya jadi halus, bukan instan */
+  
+  /*===== PENJELASAN EFEK HOVER ======*/
+  /* :hover itu disebut pseudo-class — aturan CSS khusus yang aktif hanya saat kondisi tertentu terjadi, 
+  dalam hal ini saat mouse "menyentuh"/mengarah ke elemen tanpa diklik. Ini yang bikin website terasa hidup 
+  dan memberi tahu pengguna "ini bisa diklik lho". 
+  
+  Penjelasan:
+
+a:hover { } — titik dua diikuti hover artinya "saat kondisi hover terjadi pada elemen a, pakai style ini". 
+Formatnya selalu selector:nama-pseudo-class.
+header nav a:hover — lebih spesifik, cuma berlaku untuk link di dalam menu navigasi 
+(menang dibanding aturan a:hover yang umum, sesuai prinsip specificity yang sudah kamu pelajari)
+transition: background-color 0.2s; — ini yang bikin perubahan warna terasa halus (fade) selama 0.2 detik, 
+bukan berubah tiba-tiba/kasar. Coba hapus baris ini sebentar untuk merasakan bedanya, lalu kembalikan lagi.*/
+}
+
+/* ===== TAMPILAN UNTUK LAYAR KECIL (HP) ===== */
+@media (max-width: 600px) {
+  body {
+    margin: 16px;   /* jarak pinggir dikecilkan, biar konten lebih lega di layar sempit */
+  }
+
+  header {
+    flex-direction: column;   /* logo, judul, nav jadi tersusun ke bawah lagi */
+    align-items: flex-start;  /* rata kiri, bukan di tengah */
+  }
+
+  header nav {
+    margin-top: 12px;
+  }
+
+  table {
+    font-size: 14px;   /* teks tabel dikecilkan sedikit biar muat */
+  }
+  
+  /*========= Penjelasan:
+
+@media (max-width: 600px) { ... } — artinya "kalau lebar layar 600px atau lebih kecil, pakai aturan di dalam kurung kurawal ini". 
+600px itu kira-kira lebar layar HP dalam posisi tegak.
+Di dalam media query, kita menimpa aturan yang sudah ada sebelumnya — misalnya flex-direction: column membuat header yang tadinya horizontal 
+(display: flex biasa = baris) jadi vertikal lagi (susun ke bawah), khusus di layar kecil.
+Aturan di luar media query tetap berlaku sebagai "default" untuk layar besar; aturan di dalam media query jadi "pengecualian" untuk layar kecil.
+
+Cara mengetesnya tanpa perlu HP:
+
+Buka index.html di Chrome
+Tekan F12 untuk membuka Developer Tools
+Klik ikon HP/tablet kecil di pojok kiri atas panel yang muncul (namanya "Toggle device toolbar")
+Browser sekarang mensimulasikan tampilan layar HP — coba lihat apakah header-nya sudah menyesuaikan ======*/
+}
